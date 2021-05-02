@@ -13,7 +13,7 @@ public class Main {
         System.out.println("lehetséges parancsok: enc = titkosítás | dec = visszafejtés | exit = kilépés \n");
 
         while(true){
-            System.out.print("\nÜzenet: ");
+            System.out.print("\nÜzenet (szám): ");
             BigInteger message = scanner.nextBigInteger();
 
             System.out.print("Parancs: ");
