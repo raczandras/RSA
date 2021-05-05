@@ -19,22 +19,22 @@ public class Main {
             System.out.print("Parancs: ");
             String choice = scanner1.nextLine();
 
-            switch (choice) {
-                case "dec" -> {
-                    BigInteger m = rsa.decrypt(message);
-                    if (message.equals(rsa.encrypt(m))) {
-                        System.out.println("A Visszafejtett üzenet: " + m);
-                    }
+            if(choice.equalsIgnoreCase("dec")) {
+                BigInteger m = rsa.decrypt(message);
+                if (message.equals(rsa.encrypt(m))) {
+                    System.out.println("A Visszafejtett üzenet: " + m);
                 }
-                case "enc" -> {
-                    BigInteger c = rsa.encrypt(message);
-                    if (message.equals(rsa.decrypt(c))) {
-                        System.out.println("A titkosított üzenet: " + c);
-                    }
+            } else if( choice.equalsIgnoreCase("enc")) {
+                BigInteger c = rsa.encrypt(message);
+                if (message.equals(rsa.decrypt(c))) {
+                    System.out.println("A titkosított üzenet: " + c);
                 }
-                case "exit" -> System.exit(0);
-                default -> System.out.println("Ismeretlen parancs. \nlehetséges parancsok: enc = titkosítás | dec = visszafejtés | exit = kilépés \n");
+            } else if ( choice.equalsIgnoreCase("exit")) {
+                System.exit(0);
+            } else {
+                System.out.println("Ismeretlen parancs. \nlehetséges parancsok: enc = titkosítás | dec = visszafejtés | exit = kilépés \n");
             }
+            
         }
     }
 }
